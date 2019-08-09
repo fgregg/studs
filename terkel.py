@@ -56,7 +56,7 @@ for entry in all_entries(query, 25):
             try:
                 original_broadcast = dateutil.parser.parse(entry['wfmt_date_broadcast'][0],
                                                            default=created_datetime)
-            except (calendar.IllegalMonthError, KeyError):
+            except (calendar.IllegalMonthError, KeyError, ValueError):
                 original_broadcast = created_datetime
             
         original_broadcast = pytz.utc.localize(original_broadcast)
